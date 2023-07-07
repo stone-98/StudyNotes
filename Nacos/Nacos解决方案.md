@@ -22,25 +22,28 @@
 
 **参考相关开源实现自定义度量器，用于描述监控数据，度量器类型大致如下所示：**
 - Metric：用于标识度量器，以及提供度量器公共的抽象
-- Gauge
-- Counter
-- Histogram
-- Timer
+- Gauge：用于表示一个可变的数值。它通常用于表示系统的当前状态或某个指标的实时值。
+- Counter：Counter是一个简单的累加器，用于记录一个事件发生的次数或某个操作执行的次数。
+- Histogram：用于度量和统计数据分布的工具。它将一组数据分成不同的桶（buckets），每个桶代表一个数值范围，并记录落入该范围的数据点数量。直方图可以用于测量数据的分布情况，
+- Timer：Timer用于测量操作的持续时间。它通常用于记录函数或代码块的执行时间，以便确定性能瓶颈和优化机会。
 - ...
 
-这里暂未给出更详细的描述，后续将会补全
+对于度量器的具体实现暂未给出更详细的描述，主要参考一些开源的实现。
 
-#### Registry Plugin
-定义公共的指标注册器，用于注册和获取指标
-- MetricRegistry
-#### Adapter Plugin
-定义公共的适配器插件，用于将自定义的Metric转化为第三方监控系统的Metrics。
-- MetricAdapter
+#### sdk-exposed-metrics-plugin
 
-#### 提供对插件的实现：
+新增定义Nacos暴漏指标插件，用于定义公共接口，如下：
+
+- MetricRegistry：定义公共的指标注册器，用于注册和获取指标
+- MetricsAdapter：定义公共的适配器插件，用于将自定义的Metric转化为第三方监控系统的Metrics。
+- MetricRegistryManager
+- MetricsAdapterManager
+
+#### 提供对sdk-exposed-metrics-plugin插件的实现：
+
 - 提供对Metric Plugin的实现CompactMetricPlugin
 - 提供对Registry Plugin的实现CompactRegistryPlugin
-- 提供对Adapter Plugin的实现PrometheusAdapter，用于将CompactMetrics转化为PrometheusMetrics
+- 提供对MetricsAdapter的实现PrometheusMetricsAdapter，用于将CompactMetrics转化为PrometheusMetrics
 
 #### 如何使用
 
