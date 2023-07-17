@@ -49,7 +49,7 @@ Nacos-Client默认不引入插件的实现，也就是用户在不使用相关�
 
 #### 流程图
 
-![img.png](images/img.png)
+![img.png](https://cxyzyw-site.oss-cn-beijing.aliyuncs.com/images202307172205630.png)
 
 Nacos-Client通过Metric将指标记录到MetricRegistry，然后根据对应的Adapter将Metric适配成第三方需要的指标结构，以便用户使用
 
