@@ -20,7 +20,7 @@ slave会根据master执行命令的顺序依次执行对应的命令。所以sla
 
 来举一个例子，当前RabbitMQ集群中有三个Broker节点，该集群节点中分别有3个队列Q1、Q2、Q3，他们三个队列分别有3个master节点和6个slave节点，分布图如下图所示：
 
-![image-20230722144846310](C:/Users/admin/AppData/Roaming/Typora/typora-user-images/image-20230722144846310.png)
+![image-20230722144846310](https://gitee.com/stone-98/picture-bed/raw/master/202307221526280.png)
 
 从上图中可知：
 
